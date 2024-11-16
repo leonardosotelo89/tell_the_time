@@ -1,0 +1,701 @@
+<html lang="en">
+  <head>
+<meta charset="UTF-8">
+
+<meta 
+name="viewport" 
+content="width=device-width,
+         height=device-height, 
+         initial-scale=1.0">
+
+    <title></title>
+    <style>
+*{margin:0px;padding:0px;box-sizing:border-box;}
+    body{
+      background-color: rgb(0,0,0);
+      color: lime;
+} 
+h2{
+  animation:colores 7s 1s linear infinite;
+}
+@keyframes colores{
+  from{
+   filter: hue-rotate(0deg);
+  }to{
+    filter: hue-rotate(360deg);
+  }
+}
+
+    </style>
+  </head>
+  
+  <body>
+    
+    <h2>html5</h2>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+
+
+
+
+
+
+<script>
+const mainaudio = new Audio()
+let tospeak = []
+let date = new Date();
+let previousMinute = date.getMinutes();
+let hour = null
+
+
+
+
+const allhours = {
+  zero:'cerohoras.mp3',
+  one:'launa.mp3',
+  two:'lasdos.mp3',
+  three:'lastres.mp3',
+  four:'lascuatro.mp3',
+  five:'lascinco.mp3',
+  six:'lasseis.mp3',
+  seven:'lassiete.mp3',
+  eight:'lasocho.mp3',
+  nine:'lasnueve.mp3',
+  ten:'lasdiez.mp3',
+  eleven:'lasonce.mp3',
+  twelve:'lasdoce.mp3',
+  thirteen:'lastrece.mp3',
+  fourteen:'lascatorce.mp3',
+  fifteen:'lasquince.mp3',
+  sixteen:'lasdiesiseis.mp3', 
+  seventeen:'lasdiesisiete.mp3',
+  eighteen:'lasdiesiocho.mp3',
+  nineteen:'lasdiesinueve.mp3',
+  twenty:'lasveinte.mp3',
+  twentyone:'lasveintiuna.mp3',
+  twentytwo:'lasveintidos.mp3',
+  twentythree:'lasveintitres.mp3'
+}
+
+const allminutes = {
+  zero:'enpunto.mp3', 
+  one:'uno.mp3',
+  two:'dos.mp3',
+  three:'tres.mp3',
+  four:'cuatro.mp3',
+  five:'cinco.mp3',
+  six:'seis.mp3',
+  seven:'siete.mp3',
+  eight:'ocho.mp3',
+  nine:'nueve.mp3',
+  ten:'diez.mp3',
+  eleven:'once.mp3',
+  twelve:'doce.mp3',
+  thirteen:'trece.mp3',
+  fourteen:'catorce.mp3',
+  fifteen:'quince.mp3',
+  sixteen:'diesiseis.mp3', 
+  seventeen:'diesisiete.mp3',
+  eighteen:'diesiocho.mp3',
+  nineteen:'diesinueve.mp3',
+  twenty:'veinte.mp3',
+  twentyone:'veintiuno.mp3',
+  twentytwo:'veintidos.mp3',
+  twentythree:'veintitres.mp3',
+  twentyfour:'veinticuatro.mp3',
+  twentyfive:'veinticinco.mp3', 
+  twentysix:'veintiseis.mp3',
+  twentyseven:'veintisiete.mp3',
+  twentyeight:'veintiocho.mp3',
+  twentynine:'veintinueve.mp3',
+  thirty:'treinta.mp3',
+  thirtyone:'treintaiuno.mp3',
+  thirtytwo:'treintaidos.mp3',
+  thirtythree:'treintaitres.mp3',
+  thirtyfour:'treintaicuatro.mp3',
+  thirtyfive:'treintaicinco.mp3',
+  thirtysix:'treintaiseis.mp3',
+  thirtyseven:'treintaisiete.mp3',
+  thirtyeight:'treintaiocho.mp3',
+  thirtynine:'treintainueve.mp3',
+  fourty:'cuarenta.mp3',
+  fourtyone:'cuarentaiuno.mp3',
+  fourtytwo:'cuarentaidos.mp3',
+  fourtythree:'cuarentaitres.mp3',
+  fourtyfour:'cuarentaicuatro.mp3',
+  fourtyfive:'cuarentaicinco.mp3',
+  fourtysix:'cuarentaiseis.mp3',
+  fourtyseven:'cuarentaisiete.mp3',
+  fourtyeight:'cuarentaiocho.mp3',
+  fourtynine:'cuarentainueve.mp3',
+  fifty:'cincuenta.mp3',
+  fiftyone:'cincuentaiuno.mp3',
+  fiftytwo:'cincuentaidos.mp3',
+  fiftythree:'cincuentaitres.mp3',
+  fiftyfour:'cincuentaicuatro.mp3',
+  fiftyfive:'cincuentaicinco.mp3',
+  fiftysix:'cincuentaiseis.mp3',
+  fiftyseven:'cincuentaisiete.mp3',
+  fiftyeight:'cincuentaiocho.mp3',
+  fiftynine:'cincuentainueve.mp3'
+}
+
+
+setInterval(() => {
+  date = new Date();
+  let currentMinute = date.getMinutes();
+  hour = date.getHours()
+  
+  if (currentMinute !== previousMinute) {
+    previousMinute = currentMinute;
+    document.body.innerHTML += `<p>Minute changed: ${currentMinute}</p>`;
+    //tospeak = []
+    switch (hour){
+      case(0):
+        tospeak.push(allhours.zero)
+        break
+      case(1):
+        tospeak.push(allhours.one)
+        break
+      case(2):
+        tospeak.push(allhours.two)
+        break
+      case(3):
+        tospeak.push(allhours.three)
+        break
+      case(4):
+        tospeak.push(allhours.four)
+        break
+      case(5):
+        tospeak.push(allhours.five)
+        break
+      case(6):
+        tospeak.push(allhours.six)
+        break
+      case(7):
+        tospeak.push(allhours.seven)
+        break
+      case(8):
+        tospeak.push(allhours.eight)
+        break
+      case(9):
+        tospeak.push(allhours.nine)
+        break
+      case(10):
+        tospeak.push(allhours.ten)
+        break
+      case(11):
+        tospeak.push(allhours.eleven)
+        break
+      case(12):
+        tospeak.push(allhours.twelve)
+        break
+      case(13):
+        tospeak.push(allhours.thirteen)
+        break
+      case(14):
+        tospeak.push(allhours.fourteen)
+        break
+      case(15):
+        tospeak.push(allhours.fifteen)
+        break
+      case(16):
+        tospeak.push(allhours.sixteen)
+        break
+      case(17):
+        tospeak.push(allhours.seventeen)
+        break
+      case(18):
+        tospeak.push(allhours.eighteen)
+        break
+      case(19):
+        tospeak.push(allhours.nineteen)
+        break
+      case(20):
+        tospeak.push(allhours.twenty)
+        break
+      case(21):
+        tospeak.push(allhours.twentyone)
+        break
+      case(22):
+        tospeak.push(allhours.twentytwo)
+        break
+      case(23):
+        tospeak.push(allhours.twentythree)
+        break
+    }
+    switch (currentMinute){
+      case(0):
+        tospeak.push(allminutes.zero)
+        break
+      case(1):
+        tospeak.push(allminutes.one)
+        break
+      case(2):
+        tospeak.push(allminutes.two)
+        break
+      case(3):
+        tospeak.push(allminutes.three)
+        break
+      case(4):
+        tospeak.push(allminutes.four)
+        break
+      case(5):
+        tospeak.push(allminutes.five)
+        break
+      case(6):
+        tospeak.push(allminutes.six)
+        break
+      case(7):
+        tospeak.push(allminutes.seven)
+        break
+      case(8):
+        tospeak.push(allminutes.eight)
+        break
+      case(9):
+        tospeak.push(allminutes.nine)
+        break
+      case(10):
+        tospeak.push(allminutes.ten)
+        break
+      case(11):
+        tospeak.push(allminutes.eleven)
+        break
+      case(12):
+        tospeak.push(allminutes.twelve)
+        break
+      case(13):
+        tospeak.push(allminutes.thirteen)
+        break
+      case(14):
+        tospeak.push(allminutes.fourteen)
+        break
+      case(15):
+        tospeak.push(allminutes.fifteen)
+        break
+      case(16):
+        tospeak.push(allminutes.sixteen)
+        break
+      case(17):
+        tospeak.push(allminutes.seventeen)
+        break
+      case(18):
+        tospeak.push(allminutes.eightteen)
+        break
+      case(19):
+        tospeak.push(allminutes.nineteen)
+        break
+      case(20):
+        tospeak.push(allminutes.twenty)
+        break
+      case(21):
+        tospeak.push(allminutes.twentyone)
+        break
+      case(22):
+        tospeak.push(allminutes.twentytwo)
+        break
+      case(23):
+        tospeak.push(allminutes.twentythree)
+        break
+      case(24):
+        tospeak.push(allminutes.twentyfour)
+        break
+      case(25):
+        tospeak.push(allminutes.twentyfive)
+        break
+      case(26):
+        tospeak.push(allminutes.twentysix)
+        break
+      case(27):
+        tospeak.push(allminutes.twentyseven)
+        break
+      case(28):
+        tospeak.push(allminutes.twentyeight)
+        break
+      case(29):
+        tospeak.push(allminutes.twentynine)
+        break
+      case(30):
+        tospeak.push(allminutes.thirty)
+        break
+      case(31):
+        tospeak.push(allminutes.thirtyone)
+        break
+      case(32):
+        tospeak.push(allminutes.thirtytwo)
+        break
+      case(33):
+        tospeak.push(allminutes.thirtythree)
+        break
+      case(34):
+        tospeak.push(allminutes.thirtyfour)
+        break
+      case(35):
+        tospeak.push(allminutes.thirtyfive)
+        break
+      case(36):
+        tospeak.push(allminutes.thirtysix)
+        break
+      case(37):
+        tospeak.push(allminutes.thirtyseven)
+        break
+      case(38):
+        tospeak.push(allminutes.thirtyeight)
+        break
+      case(39):
+        tospeak.push(allminutes.thirtynine)
+        break
+      case(40):
+        tospeak.push(allminutes.fourty)
+        break
+      case(41):
+        tospeak.push(allminutes.fourtyone)
+        break
+      case(42):
+        tospeak.push(allminutes.fourtytwo)
+        break
+      case(43):
+        tospeak.push(allminutes.fourtythree)
+        break
+      case(44):
+        tospeak.push(allminutes.fourtyfour)
+        break
+      case(45):
+        tospeak.push(allminutes.fourtyfive)
+        break
+      case(46):
+        tospeak.push(allminutes.fourtysix)
+        break
+      case(47):
+        tospeak.push(allminutes.fourtyseven)
+        break
+      case(48):
+        tospeak.push(allminutes.fourtyeight)
+        break
+      case(49):
+        tospeak.push(allminutes.fourtynine)
+        break
+      case(50):
+        tospeak.push(allminutes.fifty)
+        break
+      case(51):
+        tospeak.push(allminutes.fiftyone)
+        break
+      case(52):
+        tospeak.push(allminutes.fiftytwo)
+        break
+      case(53):
+        tospeak.push(allminutes.fiftythree)
+        break
+      case(54):
+        tospeak.push(allminutes.fiftyfour)
+        break
+      case(55):
+        tospeak.push(allminutes.fiftyfive)
+        break
+      case(56):
+        tospeak.push(allminutes.fiftysix)
+        break
+      case(57):
+        tospeak.push(allminutes.fiftyseven)
+        break
+      case(58):
+        tospeak.push(allminutes.fiftyeight)
+        break
+      case(59):
+        tospeak.push(allminutes.fiftynine)
+        break
+    }
+    if(tospeak.length !== 0){
+    mainaudio.src = tospeak[0]
+    mainaudio.play()
+    mainaudio.onended = () =>{
+    mainaudio.src = tospeak[1]
+    mainaudio.play()
+    mainaudio.onended = function (){
+      tospeak = []
+    }
+    } 
+  }
+  }
+  
+}, 100000);
+
+
+function time(){
+  hour = 5
+  currentMinute = 5
+  
+  switch (hour){
+      case(0):
+        tospeak.push(allhours.zero)
+        break
+      case(1):
+        tospeak.push(allhours.one)
+        break
+      case(2):
+        tospeak.push(allhours.two)
+        break
+      case(3):
+        tospeak.push(allhours.three)
+        break
+      case(4):
+        tospeak.push(allhours.four)
+        break
+      case(5):
+        tospeak.push(allhours.five)
+        break
+      case(6):
+        tospeak.push(allhours.six)
+        break
+      case(7):
+        tospeak.push(allhours.seven)
+        break
+      case(8):
+        tospeak.push(allhours.eight)
+        break
+      case(9):
+        tospeak.push(allhours.nine)
+        break
+      case(10):
+        tospeak.push(allhours.ten)
+        break
+      case(11):
+        tospeak.push(allhours.eleven)
+        break
+      case(12):
+        tospeak.push(allhours.twelve)
+        break
+      case(13):
+        tospeak.push(allhours.thirteen)
+        break
+      case(14):
+        tospeak.push(allhours.fourteen)
+        break
+      case(15):
+        tospeak.push(allhours.fifteen)
+        break
+      case(16):
+        tospeak.push(allhours.sixteen)
+        break
+      case(17):
+        tospeak.push(allhours.seventeen)
+        break
+      case(18):
+        tospeak.push(allhours.eighteen)
+        break
+      case(19):
+        tospeak.push(allhours.nineteen)
+        break
+      case(20):
+        tospeak.push(allhours.twenty)
+        break
+      case(21):
+        tospeak.push(allhours.twentyone)
+        break
+      case(22):
+        tospeak.push(allhours.twentytwo)
+        break
+      case(23):
+        tospeak.push(allhours.twentythree)
+        break
+    }
+    switch (currentMinute){
+      case(0):
+        tospeak.push(allminutes.zero)
+        break
+      case(1):
+        tospeak.push(allminutes.one)
+        break
+      case(2):
+        tospeak.push(allminutes.two)
+        break
+      case(3):
+        tospeak.push(allminutes.three)
+        break
+      case(4):
+        tospeak.push(allminutes.four)
+        break
+      case(5):
+        tospeak.push(allminutes.five)
+        break
+      case(6):
+        tospeak.push(allminutes.six)
+        break
+      case(7):
+        tospeak.push(allminutes.seven)
+        break
+      case(8):
+        tospeak.push(allminutes.eight)
+        break
+      case(9):
+        tospeak.push(allminutes.nine)
+        break
+      case(10):
+        tospeak.push(allminutes.ten)
+        break
+      case(11):
+        tospeak.push(allminutes.eleven)
+        break
+      case(12):
+        tospeak.push(allminutes.twelve)
+        break
+      case(13):
+        tospeak.push(allminutes.thirteen)
+        break
+      case(14):
+        tospeak.push(allminutes.fourteen)
+        break
+      case(15):
+        tospeak.push(allminutes.fifteen)
+        break
+      case(16):
+        tospeak.push(allminutes.sixteen)
+        break
+      case(17):
+        tospeak.push(allminutes.seventeen)
+        break
+      case(18):
+        tospeak.push(allminutes.eightteen)
+        break
+      case(19):
+        tospeak.push(allminutes.nineteen)
+        break
+      case(20):
+        tospeak.push(allminutes.twenty)
+        break
+      case(21):
+        tospeak.push(allminutes.twentyone)
+        break
+      case(22):
+        tospeak.push(allminutes.twentytwo)
+        break
+      case(23):
+        tospeak.push(allminutes.twentythree)
+        break
+      case(24):
+        tospeak.push(allminutes.twentyfour)
+        break
+      case(25):
+        tospeak.push(allminutes.twentyfive)
+        break
+      case(26):
+        tospeak.push(allminutes.twentysix)
+        break
+      case(27):
+        tospeak.push(allminutes.twentyseven)
+        break
+      case(28):
+        tospeak.push(allminutes.twentyeight)
+        break
+      case(29):
+        tospeak.push(allminutes.twentynine)
+        break
+      case(30):
+        tospeak.push(allminutes.thirty)
+        break
+      case(31):
+        tospeak.push(allminutes.thirtyone)
+        break
+      case(32):
+        tospeak.push(allminutes.thirtytwo)
+        break
+      case(33):
+        tospeak.push(allminutes.thirtythree)
+        break
+      case(34):
+        tospeak.push(allminutes.thirtyfour)
+        break
+      case(35):
+        tospeak.push(allminutes.thirtyfive)
+        break
+      case(36):
+        tospeak.push(allminutes.thirtysix)
+        break
+      case(37):
+        tospeak.push(allminutes.thirtyseven)
+        break
+      case(38):
+        tospeak.push(allminutes.thirtyeight)
+        break
+      case(39):
+        tospeak.push(allminutes.thirtynine)
+        break
+      case(40):
+        tospeak.push(allminutes.fourty)
+        break
+      case(41):
+        tospeak.push(allminutes.fourtyone)
+        break
+      case(42):
+        tospeak.push(allminutes.fourtytwo)
+        break
+      case(43):
+        tospeak.push(allminutes.fourtythree)
+        break
+      case(44):
+        tospeak.push(allminutes.fourtyfour)
+        break
+      case(45):
+        tospeak.push(allminutes.fourtyfive)
+        break
+      case(46):
+        tospeak.push(allminutes.fourtysix)
+        break
+      case(47):
+        tospeak.push(allminutes.fourtyseven)
+        break
+      case(48):
+        tospeak.push(allminutes.fourtyeight)
+        break
+      case(49):
+        tospeak.push(allminutes.fourtynine)
+        break
+      case(50):
+        tospeak.push(allminutes.fifty)
+        break
+      case(51):
+        tospeak.push(allminutes.fiftyone)
+        break
+      case(52):
+        tospeak.push(allminutes.fiftytwo)
+        break
+      case(53):
+        tospeak.push(allminutes.fiftythree)
+        break
+      case(54):
+        tospeak.push(allminutes.fiftyfour)
+        break
+      case(55):
+        tospeak.push(allminutes.fiftyfive)
+        break
+      case(56):
+        tospeak.push(allminutes.fiftysix)
+        break
+      case(57):
+        tospeak.push(allminutes.fiftyseven)
+        break
+      case(58):
+        tospeak.push(allminutes.fiftyeight)
+        break
+      case(59):
+        tospeak.push(allminutes.fiftynine)
+        break
+    }
+    
+    mainaudio.src = tospeak[0]
+    mainaudio.play()
+    mainaudio.onended = ()=>{
+      mainaudio.src = tospeak[1]
+      mainaudio.play()
+      mainaudio.onended = ()=>{
+        tospeak = []
+      }
+    }
+}
+document.body.onclick = time
+</script>
+<footer>            <!--              --></footer>
+</body>
+</html> 
